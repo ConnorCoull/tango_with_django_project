@@ -15,11 +15,13 @@ def index(request):
     #the use of '-likes' notes that it is in decending order 'likes' would give ascending
     #pythons list syntax then takes a subset of these up to 5, as specified
     category_list = Category.objects.order_by('-likes')[:5]
+    page_list = Page.objects.order_by('-views')[:5]
 
 
     context_dict = {}
     context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['categories'] = category_list
+    context_dict['pages'] = page_list
 
     #render the response and send it back
     return render(request, 'rango/index.html', context=context_dict)
