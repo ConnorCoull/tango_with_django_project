@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -117,8 +118,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-# User Auth
-LOGIN_URL = 'rango:login'
+# User Auth - remove this?
+#LOGIN_URL = 'rango:login'
 
 # Media files
 
@@ -131,3 +132,9 @@ MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [STATIC_DIR,]
 STATIC_URL = '/static/'
+
+# USER AUTHENTICATION
+REGISTRATION_OPEN = True
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = 'rango:index'
+LOGIN_URL = 'auth_login'
